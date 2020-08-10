@@ -56,7 +56,7 @@ export default function RegisterComponent() {
           <div className="top">
             <div className="header">
               <Link to="/">
-                <img alt="logo" className="logo" src={process.env.PUBLIC_URL + '/logo.png'} />
+                <img alt="logo" className="logo" src={process.env.PUBLIC_URL + '/logo192.png'} />
                 <span className="title">{t('account:register.title')}</span>
               </Link>
             </div>

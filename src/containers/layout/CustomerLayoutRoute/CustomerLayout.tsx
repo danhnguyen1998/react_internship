@@ -9,7 +9,7 @@ import RightContent from './RightContent';
 const CustomerLayout = (props: any) => {
   const {t, i18n} = useTranslation();
 
-  const logo = () => <img src={`${process.env.PUBLIC_URL}/logo.png`} />;
+  const logo = () => <img src={`${process.env.PUBLIC_URL}/logo192.png`} />;
 
   const menuItemRender = (menuItemProps: MenuDataItem, defaultDom: React.ReactNode) => (
     <Link to={menuItemProps.path || ''}>{defaultDom}</Link>
@@ -20,7 +20,7 @@ const CustomerLayout = (props: any) => {
   return (
     <>
       <ProLayout
-        title="DanceSport"
+        title="Finance"
         layout="top"
         contentWidth="Fixed"
         navTheme="light"

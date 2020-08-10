@@ -48,7 +48,7 @@ export const routeManager = (t: TFunction): RouteTypes => {
       },
       {
         path: '/manager/categories',
-        name: t('common:manager.menu.categories'),
+        name: t('common:manager.menu.categoriesWallet'),
         icon: <UnorderedListOutlined />,
         children: [
           {

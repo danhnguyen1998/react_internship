@@ -1,7 +1,7 @@
 {
   "customer": {
     "menu": {
-      "title": "DanceSport",
+      "title": "",
       "home": "Trang chủ",
       "competitionSignup": "Đăng ký thi đấu",
       "register": "Đăng ký",
@@ -10,10 +10,10 @@
   },
   "manager": {
     "menu": {
-      "title": "DanceSport",
+      "title": "",
       "home": "Trang chủ",
-      "categories": "Hệ thống danh mục",
-      "categoriesClub": "Câu lạc bộ",
+      "categoriesWallet": "Quản lý ví",
+      "categoriesClub": "Quản lý danh mục thu chi",
       "categoriesAccount": "Tài khoản",
       "categoriesAge": "Độ tuổi",
       "categoriesDanceTypes": "Loại điệu nhảy",

@@ -35,7 +35,7 @@ export default function LoginComponent(props) {
         <div className="top">
           <div className="header">
             <Link to="/">
-              <img alt="logo" className="logo" src={process.env.PUBLIC_URL + '/logo.png'} />
+              <img alt="logo" className="logo" src={process.env.PUBLIC_URL + '/logo192.png'} />
               <span className="title">{t('account:login.title')}</span>
             </Link>
           </div>
