@@ -1,0 +1,42 @@
+{
+  "customer": {
+    "menu": {
+      "title": "DanceSport",
+      "home": "Trang chủ",
+      "competitionSignup": "Đăng ký thi đấu",
+      "register": "Đăng ký",
+      "signin": "Đăng nhập"
+    }
+  },
+  "manager": {
+    "menu": {
+      "title": "DanceSport",
+      "home": "Trang chủ",
+      "categories": "Hệ thống danh mục",
+      "categoriesClub": "Câu lạc bộ",
+      "categoriesAccount": "Tài khoản",
+      "categoriesAge": "Độ tuổi",
+      "categoriesDanceTypes": "Loại điệu nhảy",
+      "categoriesDance": "Điệu nhảy",
+      "categoriesLevel": "Hạng thi đấu",
+      "settingUser": "Hồ sơ người dùng",
+      "contentCompetition": "Nội dung thi đấu",
+      "managingAthletes": "Vận động viên",
+      "logout": "Đăng xuất"
+    }
+  },
+  "exception": {
+    "404": "Xin lỗi, trang bạn truy cập không tồn tại",
+    "backHome": "Quay lại trang chủ"
+  },
+  "filter": {
+    "title": "Tìm kiếm",
+    "reset": "Xóa"
+  },
+  "notification": {
+    "success": "Thành công",
+    "error": "Lỗi",
+    "warning": "Cảnh báo",
+    "info": "Thông tin"
+  }
+}
