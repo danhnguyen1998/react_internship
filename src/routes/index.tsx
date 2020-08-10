@@ -50,38 +50,38 @@ export const routeManager = (t: TFunction): RouteTypes => {
         path: '/manager/categories',
         name: t('common:manager.menu.categoriesWallet'),
         icon: <UnorderedListOutlined />,
-        children: [
-          {
-            path: 'club',
-            breadcrumbName: t('common:manager.menu.categoriesClub'),
-            name: t('common:manager.menu.categoriesClub'),
-          },
-          {
-            path: 'age',
-            breadcrumbName: t('common:manager.menu.categoriesAge'),
-            name: t('common:manager.menu.categoriesAge'),
-          },
-          {
-            path: 'dancetypes',
-            breadcrumbName: t('common:manager.menu.categoriesDanceTypes'),
-            name: t('common:manager.menu.categoriesDanceTypes'),
-          },
-          {
-            path: 'dance',
-            breadcrumbName: t('common:manager.menu.categoriesDance'),
-            name: t('common:manager.menu.categoriesDance'),
-          },
-          {
-            path: 'level',
-            breadcrumbName: t('common:manager.menu.categoriesLevel'),
-            name: t('common:manager.menu.categoriesLevel'),
-          },
-          {
-            path: 'account',
-            breadcrumbName: t('common:manager.menu.categoriesAccount'),
-            name: t('common:manager.menu.categoriesAccount'),
-          },
-        ],
+        // children: [
+        //   {
+        //     path: 'club',
+        //     breadcrumbName: t('common:manager.menu.categoriesClub'),
+        //     name: t('common:manager.menu.categoriesClub'),
+        //   },
+        //   {
+        //     path: 'age',
+        //     breadcrumbName: t('common:manager.menu.categoriesAge'),
+        //     name: t('common:manager.menu.categoriesAge'),
+        //   },
+        //   {
+        //     path: 'dancetypes',
+        //     breadcrumbName: t('common:manager.menu.categoriesDanceTypes'),
+        //     name: t('common:manager.menu.categoriesDanceTypes'),
+        //   },
+        //   {
+        //     path: 'dance',
+        //     breadcrumbName: t('common:manager.menu.categoriesDance'),
+        //     name: t('common:manager.menu.categoriesDance'),
+        //   },
+        //   {
+        //     path: 'level',
+        //     breadcrumbName: t('common:manager.menu.categoriesLevel'),
+        //     name: t('common:manager.menu.categoriesLevel'),
+        //   },
+        //   {
+        //     path: 'account',
+        //     breadcrumbName: t('common:manager.menu.categoriesAccount'),
+        //     name: t('common:manager.menu.categoriesAccount'),
+        //   },
+        // ],
       },
       {
         path: '/manager/competition',
