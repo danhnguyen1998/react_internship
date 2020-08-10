@@ -1,4 +1,4 @@
-# dacesport-frontend
+# react-frontend
 Project DanceSport Front-End with ReactJS/Redux/Typescript
 
 ## I. Setup
@@ -37,8 +37,6 @@ Xây dựng structure Back-End
 - Sử dụng TypeScript trong dự án
 
 ### 2. Trello task
-
-https://app.asana.com/0/1186125307792483/1186125307792403/f
 
 ### 3. Packages added
 
