@@ -2,12 +2,17 @@ import {Spin} from 'antd';
 import {ConnectedRouter} from 'connected-react-router';
 import CustomerLayoutRoute from 'containers/layout/CustomerLayoutRoute';
 import ManagerLayoutRoute from 'containers/layout/ManagerLayoutRoute';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 import React, {lazy, Suspense} from 'react';
 import {Provider} from 'react-redux';
 import {Redirect, Route, Switch} from 'react-router';
 import {PersistGate} from 'redux-persist/integration/react';
+import firebaseConfig from 'utils/firebaseConfig';
 import './App.less';
 import configureStore from './boot/configureStore';
+
+firebase.initializeApp(firebaseConfig);
 
 const Login = lazy(() => import('./screens/account/login'));
 const Register = lazy(() => import('./screens/account/register'));

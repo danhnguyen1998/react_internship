@@ -1,10 +1,12 @@
 {
   "login": {
-    "title": " Management",
+    "title": "Finance Management",
     "subtitle": "Quản lý tài chính một cách thông minh hơn",
     "userName": "Tài khoản",
     "password": "Mật khẩu",
     "signin": "Đăng nhập",
+    "signinGoogle": "Đăng nhập bằng Google",
+    "signinFacebook": "Đăng nhập bằng Facebook",
     "message": {
       "username": "Tên đăng nhập không được để trống",
       "password": "Mật khẩu không được để trống"

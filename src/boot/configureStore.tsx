@@ -7,7 +7,7 @@ import {persistReducer, persistStore} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import createSagaMiddleware from 'redux-saga';
 import {all, fork} from 'redux-saga/effects';
-// import scrrenReducer from "screens/screenReducers";
+import screenReducer from 'screens/screenReducers';
 import screenSaga from 'screens/screenSaga';
 
 class ConfigureStore {
@@ -31,7 +31,7 @@ class ConfigureStore {
     /** config root reducer */
     const allReducers = combineReducers({
       router: connectRouter(this.history),
-      // screen: scrrenReducer,
+      screen: screenReducer,
     });
     const resettableAppReducer = (state: CombinedState<any>, action: any) => allReducers(state, action);
 

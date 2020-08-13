@@ -1,10 +1,4 @@
-import {
-  AuditOutlined,
-  EditOutlined,
-  HomeOutlined,
-  UnorderedListOutlined,
-  UsergroupAddOutlined,
-} from '@ant-design/icons';
+import {EditOutlined, HomeOutlined, MoneyCollectOutlined, TransactionOutlined, WalletOutlined} from '@ant-design/icons';
 import {TFunction} from 'i18next';
 import React, {lazy} from 'react';
 import RouteTypes from './RouterTypes';
@@ -49,7 +43,7 @@ export const routeManager = (t: TFunction): RouteTypes => {
       {
         path: '/manager/categories',
         name: t('common:manager.menu.categoriesWallet'),
-        icon: <UnorderedListOutlined />,
+        icon: <WalletOutlined />,
         // children: [
         //   {
         //     path: 'club',
@@ -85,15 +79,15 @@ export const routeManager = (t: TFunction): RouteTypes => {
       },
       {
         path: '/manager/competition',
-        breadcrumbName: t('common:manager.menu.contentCompetition'),
-        name: t('common:manager.menu.contentCompetition'),
-        icon: <AuditOutlined />,
+        breadcrumbName: t('common:manager.menu.categoriesMoney'),
+        name: t('common:manager.menu.categoriesMoney'),
+        icon: <MoneyCollectOutlined />,
       },
       {
         path: '/manager/athletes',
-        breadcrumbName: t('common:manager.menu.managingAthletes'),
-        name: t('common:manager.menu.managingAthletes'),
-        icon: <UsergroupAddOutlined />,
+        breadcrumbName: t('common:manager.menu.categoriesTrans'),
+        name: t('common:manager.menu.categoriesTrans'),
+        icon: <TransactionOutlined />,
       },
     ],
   };

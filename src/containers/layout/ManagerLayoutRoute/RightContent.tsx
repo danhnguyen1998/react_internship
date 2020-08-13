@@ -1,6 +1,8 @@
 import {DownOutlined, LogoutOutlined, UserOutlined} from '@ant-design/icons';
 import {HeaderViewProps} from '@ant-design/pro-layout/lib/Header';
 import {Avatar, Button, Dropdown, Menu} from 'antd';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
 import {i18n, TFunction} from 'i18next';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
@@ -15,6 +17,7 @@ interface IProps extends HeaderViewProps {
 const RightContent = (props: IProps) => {
   const {t} = useTranslation();
   const history = useHistory();
+  // firebase.initializeApp(firebaseConfig);
 
   const handleMenuClick = (evt: any) => {
     props.i18n.changeLanguage(evt.key);
@@ -22,7 +25,12 @@ const RightContent = (props: IProps) => {
 
   const handleUserMenuClick = (evt: any) => {
     if (evt.key === 'logout') {
-      history.push('/');
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          history.push('/');
+        });
     }
   };
 

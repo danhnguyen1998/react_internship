@@ -3,7 +3,7 @@
     "menu": {
       "title": "",
       "home": "Trang chủ",
-      "competitionSignup": "Đăng ký thi đấu",
+      "competitionSignup": "Đăng ký",
       "register": "Đăng ký",
       "signin": "Đăng nhập"
     }
@@ -13,7 +13,7 @@
       "title": "",
       "home": "Trang chủ",
       "categoriesWallet": "Quản lý ví",
-      "categoriesClub": "Quản lý danh mục thu chi",
+      "categoriesMoney": "Quản lý danh mục thu chi",
       "categoriesAccount": "Tài khoản",
       "categoriesAge": "Độ tuổi",
       "categoriesDanceTypes": "Loại điệu nhảy",
@@ -21,7 +21,7 @@
       "categoriesLevel": "Hạng thi đấu",
       "settingUser": "Hồ sơ người dùng",
       "contentCompetition": "Quản lý danh mục thu chi",
-      "managingAthletes": "Quản lý giao dịch",
+      "categoriesTrans": "Quản lý giao dịch",
       "logout": "Đăng xuất"
     }
   },
