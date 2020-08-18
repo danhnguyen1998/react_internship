@@ -16,6 +16,7 @@ firebase.initializeApp(firebaseConfig);
 
 const Login = lazy(() => import('./screens/account/login'));
 const Register = lazy(() => import('./screens/account/register'));
+const Settings = lazy(() => import('./screens/account/settings'));
 const Home = lazy(() => import('./screens/customers/home'));
 const NotFound = lazy(() => import('./containers/exception/404'));
 /** trang chủ */
@@ -69,6 +70,7 @@ export default function App() {
               <CustomerLayoutRoute exact={true} path="/" component={Home} />
               <CustomerLayoutRoute path="/login" component={Login} />
               <CustomerLayoutRoute path="/register" component={Register} />
+              <ManagerLayoutRoute path="/settings" component={Settings} />
               <Route path="/manager" component={ManagerRoute} />
               <Route component={NotFound} />
             </Switch>
