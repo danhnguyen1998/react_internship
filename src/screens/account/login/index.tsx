@@ -4,12 +4,11 @@ import {Rule} from 'antd/lib/form';
 import {Store} from 'antd/lib/form/interface';
 import system from 'constant/system';
 import {setAccountAction} from 'containers/redux/account/actions';
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link, useHistory} from 'react-router-dom';
+import firebase from 'utils/firebaseConfig';
 import notification from 'utils/notification';
 import {login} from './services';
 import './style.less';
@@ -103,7 +102,7 @@ export default function LoginComponent(props) {
               </Form.Item>
             </Form>
             <Button
-              danger
+              danger={true}
               icon={<GooglePlusOutlined />}
               size="large"
               className="submit"
@@ -113,7 +112,7 @@ export default function LoginComponent(props) {
               {t('account:login.signinGoogle')}
             </Button>
             <br />
-            <p></p>
+            <p />
             <Button
               icon={<FacebookOutlined />}
               size="large"

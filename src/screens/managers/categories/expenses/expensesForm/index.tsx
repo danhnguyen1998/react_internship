@@ -3,7 +3,7 @@ import {Button, Form, Input, Modal, Space} from 'antd';
 import Search from 'antd/lib/input/Search';
 import React, {useState} from 'react';
 
-export default function AgeForm(props: any) {
+export default function ExpensesForm(props: any) {
   const [state, setState] = useState({
     visible: false,
   });

@@ -1,11 +1,13 @@
-import {PlusOutlined, RedoOutlined} from '@ant-design/icons';
+import {PlusOutlined} from '@ant-design/icons';
 import {Button, Form, Input, Modal, Space} from 'antd';
-import Search from 'antd/lib/input/Search';
 import React, {useState} from 'react';
+import firebase from 'utils/firebaseConfig';
 
-export default function LevelForm(props: any) {
+export default function ClubForm(props: any) {
   const [state, setState] = useState({
     visible: false,
+    name: '',
+    balance: '',
   });
 
   const addNew = () => {
@@ -13,6 +15,12 @@ export default function LevelForm(props: any) {
   };
 
   const handleOk = (e) => {
+    const walletRef = firebase.database().ref('Wallet');
+    const walletData = {
+      name: state.name,
+      balance: parseFloat(state.balance),
+    };
+    walletRef.push(walletData);
     setState((state) => ({...state, visible: false}));
   };
 
@@ -20,17 +28,18 @@ export default function LevelForm(props: any) {
     setState((state) => ({...state, visible: false}));
   };
 
-  const onSearch = (value: string) => {
-    console.log(value, 'value');
+  const handleOnChange = (e) => {
+    e.persist();
+    setState((state) => ({...state, [e.target.name]: e.target.value}));
   };
 
   return (
     <>
       <Space style={{marginBottom: 15}}>
-        <Search placeholder="input search text" enterButton="Tìm kiếm" onSearch={onSearch} />
-        <Button type="primary" icon={<RedoOutlined />}>
+        {/* <Search placeholder="input search text" enterButton="Tìm kiếm" onSearch={onSearch} /> */}
+        {/* <Button type="primary" icon={<RedoOutlined />}>
           Làm mới
-        </Button>
+        </Button> */}
         <Button type="primary" icon={<PlusOutlined />} onClick={addNew}>
           Thêm mới
         </Button>
@@ -48,11 +57,11 @@ export default function LevelForm(props: any) {
           </Button>,
         ]}>
         <Form>
-          <Form.Item label="Tài khoản">
-            <Input />
+          <Form.Item label="Tên ví">
+            <Input name="name" onChange={handleOnChange} />
           </Form.Item>
-          <Form.Item label="Họ và tên">
-            <Input />
+          <Form.Item label="Số dư khởi tạo">
+            <Input name="balance" onChange={handleOnChange} />
           </Form.Item>
         </Form>
       </Modal>

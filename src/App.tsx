@@ -2,17 +2,17 @@ import {Spin} from 'antd';
 import {ConnectedRouter} from 'connected-react-router';
 import CustomerLayoutRoute from 'containers/layout/CustomerLayoutRoute';
 import ManagerLayoutRoute from 'containers/layout/ManagerLayoutRoute';
-import * as firebase from 'firebase/app';
-import 'firebase/auth';
+// import * as firebase from 'firebase/app';
+// import 'firebase/auth';
 import React, {lazy, Suspense} from 'react';
 import {Provider} from 'react-redux';
 import {Redirect, Route, Switch} from 'react-router';
 import {PersistGate} from 'redux-persist/integration/react';
-import firebaseConfig from 'utils/firebaseConfig';
+// import firebaseConfig from 'utils/firebaseConfig';
 import './App.less';
 import configureStore from './boot/configureStore';
 
-firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig);
 
 const Login = lazy(() => import('./screens/account/login'));
 const Register = lazy(() => import('./screens/account/register'));
@@ -21,35 +21,17 @@ const Home = lazy(() => import('./screens/customers/home'));
 const NotFound = lazy(() => import('./containers/exception/404'));
 /** trang chủ */
 const ManagerHome = lazy(() => import('./screens/managers/home'));
-/** quản lý tài khoản */
-const ManagerAccount = lazy(() => import('./screens/managers/categories/accounts'));
-/** quản lý độ tuổi */
-const ManagerAge = lazy(() => import('./screens/managers/categories/age'));
-/** quản lý loại điệu nhảy */
-const ManagerDanceTypes = lazy(() => import('./screens/managers/categories/danceTypes'));
-/** quản lý điệu nhảy */
-const ManagerDance = lazy(() => import('./screens/managers/categories/dance'));
-/** quản lý hạng thi đấu */
-const ManagerLevel = lazy(() => import('./screens/managers/categories/level'));
-/** quản lý nội dung thi đấu */
-const ManagerCompetition = lazy(() => import('./screens/managers/competition'));
-/** quản lý vận động viên */
-const ManagerAthletes = lazy(() => import('./screens/managers/athletes'));
-/** quản lý câu lạc bộ */
-const ManagerClub = lazy(() => import('./screens/managers/categories/club'));
+const ManagerExpenses = lazy(() => import('./screens/managers/categories/expenses'));
+const ManagerTransaction = lazy(() => import('./screens/managers/categories/transaction'));
+const ManagerWallet = lazy(() => import('./screens/managers/categories/wallet'));
 
 const ManagerRoute = ({match}) => {
   return (
     <Switch>
       <ManagerLayoutRoute path={match.url} exact={true} component={ManagerHome} />
-      <ManagerLayoutRoute path={`${match.url}/categories/club`} component={ManagerClub} />
-      <ManagerLayoutRoute path={`${match.url}/categories/account`} component={ManagerAccount} />
-      <ManagerLayoutRoute path={`${match.url}/categories/age`} component={ManagerAge} />
-      <ManagerLayoutRoute path={`${match.url}/categories/dancetypes`} component={ManagerDanceTypes} />
-      <ManagerLayoutRoute path={`${match.url}/categories/dance`} component={ManagerDance} />
-      <ManagerLayoutRoute path={`${match.url}/categories/level`} component={ManagerLevel} />
-      <ManagerLayoutRoute path={`${match.url}/competition`} component={ManagerCompetition} />
-      <ManagerLayoutRoute path={`${match.url}/athletes`} component={ManagerAthletes} />
+      <ManagerLayoutRoute path={`${match.url}/categories/wallet`} component={ManagerWallet} />
+      <ManagerLayoutRoute path={`${match.url}/categories/expenses`} component={ManagerExpenses} />
+      <ManagerLayoutRoute path={`${match.url}/categories/transaction`} component={ManagerTransaction} />
       <Route>
         <NotFound backHome={match.url} />
       </Route>

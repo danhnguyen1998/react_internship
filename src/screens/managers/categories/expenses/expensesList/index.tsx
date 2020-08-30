@@ -3,7 +3,7 @@ import {Button, Tooltip} from 'antd';
 import Table, {ColumnType} from 'antd/lib/table';
 import React, {useState} from 'react';
 
-export default function DanceTypesList(props: any) {
+export default function ExpensesList(props: any) {
   const data = [
     {
       key: '1',
