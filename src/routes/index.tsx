@@ -52,7 +52,7 @@ export const routeManager = (t: TFunction): RouteTypes => {
         icon: <MoneyCollectOutlined />,
       },
       {
-        path: '/manager/categories/transaction',
+        path: `/manager/categories/transaction/:id?`,
         breadcrumbName: t('common:manager.menu.categoriesTrans'),
         name: t('common:manager.menu.categoriesTrans'),
         icon: <TransactionOutlined />,

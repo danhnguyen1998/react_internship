@@ -35,7 +35,7 @@ export default function SettingsComponent(props: any) {
           <Input onChange={_onChangeText('name')} />
         </Form.Item>
         <Form.Item initialValue={props.account.email} name={['user', 'email']} label="Email" rules={[{type: 'email'}]}>
-          <Input disabled />
+          <Input disabled={true} />
         </Form.Item>
         <Form.Item wrapperCol={{offset: 8}}>
           <Button type="primary" htmlType="submit">

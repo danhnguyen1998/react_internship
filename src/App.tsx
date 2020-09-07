@@ -31,7 +31,7 @@ const ManagerRoute = ({match}) => {
       <ManagerLayoutRoute path={match.url} exact={true} component={ManagerHome} />
       <ManagerLayoutRoute path={`${match.url}/categories/wallet`} component={ManagerWallet} />
       <ManagerLayoutRoute path={`${match.url}/categories/expenses`} component={ManagerExpenses} />
-      <ManagerLayoutRoute path={`${match.url}/categories/transaction`} component={ManagerTransaction} />
+      <ManagerLayoutRoute path={`${match.url}/categories/transaction/:id?`} component={ManagerTransaction} />
       <Route>
         <NotFound backHome={match.url} />
       </Route>

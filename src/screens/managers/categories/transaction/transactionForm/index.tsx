@@ -1,11 +1,15 @@
-import {PlusOutlined, RedoOutlined} from '@ant-design/icons';
+import {PlusOutlined} from '@ant-design/icons';
 import {Button, Form, Input, Modal, Space} from 'antd';
-import Search from 'antd/lib/input/Search';
 import React, {useState} from 'react';
+import {useParams} from 'react-router-dom';
+import firebase from 'utils/firebaseConfig';
 
 export default function TransactionForm(props: any) {
+  const {id} = useParams();
   const [state, setState] = useState({
     visible: false,
+    amount: '1',
+    note: '',
   });
 
   const addNew = () => {
@@ -13,6 +17,13 @@ export default function TransactionForm(props: any) {
   };
 
   const handleOk = (e) => {
+    const walletRef = firebase.database().ref('Transaction');
+    const walletData = {
+      amount: parseFloat(state.amount),
+      note: state.note,
+      walletId: id,
+    };
+    walletRef.push(walletData);
     setState((state) => ({...state, visible: false}));
   };
 
@@ -20,17 +31,14 @@ export default function TransactionForm(props: any) {
     setState((state) => ({...state, visible: false}));
   };
 
-  const onSearch = (value: string) => {
-    console.log(value, 'value');
+  const handleOnChange = (e) => {
+    e.persist();
+    setState((state) => ({...state, [e.target.name]: e.target.value}));
   };
 
   return (
     <>
       <Space style={{marginBottom: 15}}>
-        <Search placeholder="input search text" enterButton="Tìm kiếm" onSearch={onSearch} />
-        <Button type="primary" icon={<RedoOutlined />}>
-          Làm mới
-        </Button>
         <Button type="primary" icon={<PlusOutlined />} onClick={addNew}>
           Thêm mới
         </Button>
@@ -48,11 +56,11 @@ export default function TransactionForm(props: any) {
           </Button>,
         ]}>
         <Form>
-          <Form.Item label="Tài khoản">
-            <Input />
+          <Form.Item label="Số tiền">
+            <Input name="amount" onChange={handleOnChange} />
           </Form.Item>
-          <Form.Item label="Họ và tên">
-            <Input />
+          <Form.Item label="Ghi chú">
+            <Input name="note" onChange={handleOnChange} />
           </Form.Item>
         </Form>
       </Modal>
