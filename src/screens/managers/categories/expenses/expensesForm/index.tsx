@@ -1,11 +1,16 @@
-import {PlusOutlined, RedoOutlined} from '@ant-design/icons';
-import {Button, Form, Input, Modal, Space} from 'antd';
-import Search from 'antd/lib/input/Search';
+import {PlusOutlined} from '@ant-design/icons';
+import {Button, Form, Input, Modal, Select, Space} from 'antd';
 import React, {useState} from 'react';
+import firebase from 'utils/firebaseConfig';
 
-export default function ExpensesForm(props: any) {
+export default function ClubForm(props: any) {
+  const {Option} = Select;
+
   const [state, setState] = useState({
     visible: false,
+    name: '',
+    type: '',
+    description: '',
   });
 
   const addNew = () => {
@@ -13,6 +18,13 @@ export default function ExpensesForm(props: any) {
   };
 
   const handleOk = (e) => {
+    const walletRef = firebase.database().ref('Expenses');
+    const walletData = {
+      name: state.name,
+      type: state.type,
+      description: state.description,
+    };
+    walletRef.push(walletData);
     setState((state) => ({...state, visible: false}));
   };
 
@@ -20,17 +32,22 @@ export default function ExpensesForm(props: any) {
     setState((state) => ({...state, visible: false}));
   };
 
-  const onSearch = (value: string) => {
-    console.log(value, 'value');
+  const handleOnChange = (e) => {
+    e.persist();
+    setState((state) => ({...state, [e.target.name]: e.target.value}));
+  };
+
+  const onChangeSelect = (key, value) => {
+    setState((state) => ({...state, type: value.value}));
   };
 
   return (
     <>
       <Space style={{marginBottom: 15}}>
-        <Search placeholder="input search text" enterButton="Tìm kiếm" onSearch={onSearch} />
-        <Button type="primary" icon={<RedoOutlined />}>
+        {/* <Search placeholder="input search text" enterButton="Tìm kiếm" onSearch={onSearch} /> */}
+        {/* <Button type="primary" icon={<RedoOutlined />}>
           Làm mới
-        </Button>
+        </Button> */}
         <Button type="primary" icon={<PlusOutlined />} onClick={addNew}>
           Thêm mới
         </Button>
@@ -48,11 +65,21 @@ export default function ExpensesForm(props: any) {
           </Button>,
         ]}>
         <Form>
-          <Form.Item label="Tài khoản">
-            <Input />
+          <Form.Item label="Tên danh mục">
+            <Input name="name" onChange={handleOnChange} />
           </Form.Item>
-          <Form.Item label="Họ và tên">
-            <Input />
+          <Form.Item label="Mô tả">
+            <Select
+              style={{width: 200}}
+              placeholder="Select a type of expenses"
+              optionFilterProp="children"
+              onChange={onChangeSelect}>
+              <Option value="Thu">Thu</Option>
+              <Option value="Chi">Chi</Option>
+            </Select>
+          </Form.Item>
+          <Form.Item label="Mô tả">
+            <Input name="description" onChange={handleOnChange} />
           </Form.Item>
         </Form>
       </Modal>

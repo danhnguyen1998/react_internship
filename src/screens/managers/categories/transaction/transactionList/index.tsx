@@ -1,4 +1,4 @@
-import {BankOutlined, DeleteOutlined, EditOutlined, EnterOutlined} from '@ant-design/icons';
+import {DeleteOutlined, EditOutlined} from '@ant-design/icons';
 import {Button, Form, Input, Modal, Select, Tooltip} from 'antd';
 import Table, {ColumnType} from 'antd/lib/table';
 import React, {useEffect, useState} from 'react';
@@ -29,19 +29,34 @@ export default function ClubList(props: any) {
 
   useEffect(() => {
     const transRef = firebase.database().ref('Transaction');
+    const expensesRef = firebase.database().ref('Expenses');
+
     setState((state) => ({...state, loading: true}));
 
     transRef.on('value', (snapshot) => {
-      const trans = snapshot.val();
-      const transList: any = [];
+      expensesRef.on('value', (snapshot2) => {
+        const exps = snapshot2.val();
+        const trans = snapshot.val();
+        console.log(trans, 'trans');
+        const transList: any = [];
 
-      for (const objId in trans) {
-        if (trans[objId].walletId === id) {
-          transList.push({objId, ...trans[objId]});
-        }
-      }
+        if (trans)
+          for (const objId in trans) {
+            if (exps)
+              for (const expId in exps) {
+                if (expId === trans[objId].expensesId && trans[objId].walletId === id) {
+                  const item = {
+                    amount: trans[objId].amount,
+                    note: trans[objId].note,
+                    type: exps[expId].name,
+                  };
+                  transList.push({objId, ...item});
+                }
+              }
+          }
 
-      setState((state) => ({...state, data: transList, extraData: transList, loading: false}));
+        setState((state) => ({...state, data: transList, extraData: transList, loading: false}));
+      });
     });
   }, []);
 
@@ -49,12 +64,17 @@ export default function ClubList(props: any) {
     {
       title: 'Số tiền giao dịch',
       dataIndex: 'amount',
-      key: 'id',
+      key: 'amount',
     },
     {
       title: 'Ghi chú',
       dataIndex: 'note',
-      key: 'id',
+      key: 'note',
+    },
+    {
+      title: 'Loai',
+      dataIndex: 'type',
+      key: 'type',
     },
   ];
 
@@ -136,12 +156,6 @@ export default function ClubList(props: any) {
       render: (_: any, record: any) => {
         return (
           <>
-            <Tooltip title={'Xem chi tiết'}>
-              <Button size="small" type="primary" icon={<EnterOutlined />} onClick={goToTransaction(record.id)} />
-            </Tooltip>{' '}
-            <Tooltip title={'Chuyển tiền'}>
-              <Button size="small" type="primary" icon={<BankOutlined />} onClick={toggleModalTransfer(record)} />
-            </Tooltip>{' '}
             <Tooltip title={'Sửa'}>
               <Button size="small" type="primary" icon={<EditOutlined />} onClick={toggleModalEdit(record)} />
             </Tooltip>{' '}

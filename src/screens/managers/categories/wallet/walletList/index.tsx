@@ -48,13 +48,13 @@ export default function ClubList(props: any) {
     {
       title: 'Tên ví',
       dataIndex: 'name',
-      key: 'id',
+      key: 'name',
     },
     {
       title: 'Số dư',
       dataIndex: 'balance',
       align: 'center',
-      key: 'id',
+      key: 'balance',
     },
   ];
 
