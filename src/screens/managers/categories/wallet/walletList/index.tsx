@@ -32,7 +32,6 @@ export default function ClubList(props: any) {
 
     walletRef.on('value', (snapshot) => {
       const wallets = snapshot.val();
-      console.log(wallets, '111');
       const walletList: any = [];
       for (const id in wallets) {
         if (id) {
@@ -65,11 +64,14 @@ export default function ClubList(props: any) {
   //   });
   // };
 
-  const handleEditSave = () => {
+  const handleEditSave = async () => {
+    const idUser = await localStorage.getItem('idUser');
+
     const walletRef = firebase.database().ref('Wallet').child(state.id);
     walletRef.update({
       name: state.name,
       balance: parseFloat(state.balance),
+      idUser: idUser?.toString(),
     });
     setState((state) => ({...state, visibleEdit: false}));
   };

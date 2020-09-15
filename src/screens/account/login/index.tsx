@@ -41,10 +41,10 @@ export default function LoginComponent(props) {
         if (result) {
           const credential = result.credential as firebase.auth.OAuthCredential;
           localStorage.setItem(system.ACCESS_TOKEN, JSON.stringify(credential.accessToken));
-
           const user = result.additionalUserInfo?.profile;
-          console.log(user, 'result');
-          props.setAccountAction(user);
+          let idUser = (user as any).id;
+          idUser = idUser.split('"').join('');
+          localStorage.setItem('idUser', JSON.stringify(idUser));
           history.push('/manager');
           notification.success(t('account:login.toast.success'));
         }

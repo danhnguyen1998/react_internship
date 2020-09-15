@@ -14,11 +14,14 @@ export default function ClubForm(props: any) {
     setState((state) => ({...state, visible: true}));
   };
 
-  const handleOk = (e) => {
+  const handleOk = async (e) => {
+    const idUser = await localStorage.getItem('idUser');
+
     const walletRef = firebase.database().ref('Wallet');
     const walletData = {
       name: state.name,
       balance: parseFloat(state.balance),
+      idUser: idUser?.toString(),
     };
     walletRef.push(walletData);
     setState((state) => ({...state, visible: false}));
