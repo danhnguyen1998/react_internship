@@ -8,6 +8,23 @@
       "signin": "Login"
     }
   },
+  "manager": {
+    "menu": {
+      "title": "",
+      "home": "Home",
+      "categoriesWallet": "Wallet management",
+      "categoriesClub": "Expenses management",
+      "categoriesAccount": "Account",
+      "categoriesAge": "Age",
+      "categoriesDanceTypes": "Loại điệu nhảy",
+      "categoriesDance": "Điệu nhảy",
+      "categoriesLevel": "Hạng thi đấu",
+      "settingUser": "Hồ sơ người dùng",
+      "contentCompetition": "Expenses management",
+      "managingAthletes": "Trade management",
+      "logout": "Log out"
+    }
+  },
   "exception": {
     "404": "Sorry, the page you visited does not exist.",
     "backHome": "Back Home"

@@ -7,7 +7,10 @@ const RESPONSE_STATUS = {
   FORBIDDEN: 403,
 };
 
+const ACCESS_TOKEN = '@@token';
+
 export default {
   INVALID_TOKEN,
   RESPONSE_STATUS,
+  ACCESS_TOKEN,
 };

@@ -1,3 +1,5 @@
+// import accountSaga from 'containers/redux/account/';
+
 export default {
-  // ...signUpSaga
+  // ...accountSaga,
 };
