@@ -1,5 +1,6 @@
 # react-frontend
-Project DanceSport Front-End with ReactJS/Redux/Typescript
+
+Project Front-End with ReactJS/Redux/Typescript
 
 ## I. Setup
 
@@ -31,9 +32,6 @@ yarn lint
 
 ### 1. Description
 
-Xây dựng structure Back-End
-- Sử dụng NodeJS, Express, Sequelize ORM
-- Cơ sở dữ liệu MySQL
 - Sử dụng TypeScript trong dự án
 
 ### 2. Trello task
